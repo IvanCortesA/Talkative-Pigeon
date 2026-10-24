@@ -1,0 +1,127 @@
+
+/* 
+    The styles.cc files contains the CSS styles for the application. 
+    It defines the color scheme, font styles, 
+    and other visual properties used throughout the app.
+*/
+.root { /* Root container styles */
+    -accent: #360b68;
+    -accent-dark: #280c55;
+    -ink: #1B2430;
+    -muted: #55616C;
+    -ground: #3b047a;
+    -line: #E1DED6;
+    -fx-font-family: "DM Sans", "Segoe UI", "Helvetica Neue", sans-serif;
+    -fx-font-size: 15px;
+    -fx-text-fill: -ink;
+}
+ 
+.label { /* Label styles */
+    -fx-text-fill: -ink;
+}
+.text-field, .password-field { 
+    /* Text field and password field styles for the ghost prompt*/
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #7C8791;
+    -fx-border-radius: 8;
+    -fx-padding: 0 14 0 14;
+    -fx-pref-height: 46;
+    -fx-font-size: 16px;
+    -fx-text-fill: -ink;
+}
+.text-field:focused, .password-field:focused { 
+    /* Focused text field and password field styles while the cursoris on it*/
+    -fx-border-color: -accent;
+    -fx-border-width: 2;
+}
+
+.primary-button {
+    /* Primary button styles for the main action buttons. Example: sigm in */
+    -fx-background-color: -accent;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 48;
+    -fx-cursor: hand;
+}
+
+.ghost-button:hover {
+    /* Hover effect over buttons */
+    -fx-background-color: #EEF1F3;
+    -fx-background-radius: 8;
+}
+
+.outline-button {
+    /* Outline button styles for secondary action buttons. Example: sign up */
+    -fx-background-color: transparent;
+    -fx-border-color: -muted;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-text-fill: -muted;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 44;
+    -fx-cursor: hand;
+}
+
+.avatar-text {
+    /* Label text styles */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+ 
+.time-label {
+    /* Time label styles for displaying timestamps of messages */
+    -fx-text-fill: -muted;
+    -fx-font-size: 12px;
+}
+
+
+
+
+ /* Login screen styles */
+
+
+
+ .login-brand {
+    -fx-background-color: #17475C;
+    -fx-padding: 56;
+}
+ 
+.brand-name {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+ 
+.brand-tagline {
+    -fx-text-fill: #CFE3EB;
+    -fx-font-size: 15px;
+}
+
+.login-pane {
+    -fx-background-color: -ground;
+    -fx-padding: 48;
+}
+ 
+.heading {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+ 
+.subtle {
+    -fx-text-fill: -muted;
+    -fx-font-size: 16px;
+}
+ 
+.field-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+ 
+
+
+/* ---------- Chat screen ---------- */
+

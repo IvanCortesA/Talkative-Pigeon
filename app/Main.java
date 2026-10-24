@@ -5,22 +5,24 @@
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Main extends Application { 
+    private Scene scene;
 
     @Override
     public void start(Stage stage) {
-        BorderPane root = new BorderPane();
-
-        Scene scene = new Scene(root, 1000, 650);
-
+        scene = new Scene(new LoginScreen(this::showChatScreen),1000, 660);
         stage.setTitle("Connect - Messaging App");
+        stage.setMinWidth(800);
+        stage.setMinHeight(520);
         stage.setScene(scene);
         stage.show();
+}
+    private void showChatScreen() {
+        scene.setRoot(new ChatScreen());
     }
-
+    
     public static void main(String[] args) {
         launch(args); 
     }
