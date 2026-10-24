@@ -30,7 +30,7 @@
             <resource>
                 <directory>${project.basedir}/app</directory>
                 <includes>
-                    <include>*/.css</include>
+                    <include>**/*.css</include>
                 </includes>
             </resource>
         </resources>
