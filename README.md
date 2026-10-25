@@ -35,3 +35,6 @@ Database (planned)	TODO: the cloud database the team picks
 
 You can also run `Launcher.java` from VS Code or your preferred IDE.
 
+## Architecture Diagram
+
+![alt text](MessegerArchitecture.drawio.png)
