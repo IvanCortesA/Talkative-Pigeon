@@ -12,7 +12,7 @@ public class Conversation {
     private String lastMessage;
     private final List<Message> messages = new ArrayList<>();
 
-    public Conversation(String name, String lastMessage){
+    public Conversation(String name, String lastMessage){ //contructor for the conversation object
         this.name = name;
         this.lastMessage = lastMessage;
         messages.add(new Message(lastMessage, false));

@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 public class ChatScreen extends BorderPane {
 
     public ChatScreen() {
-        
+        //create the side panel to place the conversations
         getStyleClass().add("chat-root");
         VBox sidebar = new VBox(20);
         sidebar.getStyleClass().add("sidebar");
@@ -21,10 +21,11 @@ public class ChatScreen extends BorderPane {
         Label messagesTitle = new Label("MESSAGES");
         messagesTitle.getStyleClass().add("section-title");
 
+
         ChatPanel chatPanel = new ChatPanel();
 
         VBox conversations = new VBox(10);
-
+        //create the list of conversations that will be displayed on the sidebar panel
         for (Conversation conversation : ConversationData.getSampleConversations()){
             Label conversationLabel = new Label(conversation.getname() + "\n" + conversation.getlastMessage());
 
@@ -35,8 +36,7 @@ public class ChatScreen extends BorderPane {
             conversations . getChildren().add(conversationLabel);
         }
        
-        sidebar.getChildren().addAll(appTitle, messagesTitle, conversations);
-
+        sidebar.getChildren().addAll(appTitle, messagesTitle, conversations);// use the previous list to build the panel
         setLeft(sidebar);
         setCenter(chatPanel);
 
