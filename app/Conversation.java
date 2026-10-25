@@ -34,7 +34,7 @@ public class Conversation {
         return messages;
     }
 
-    //This is used to update messages if sent so they sync
+    //This is used to update messages if we sent so they sync
     public void addMessage(Message m) {
         messages.add(m);
         lastMessage = m.getText();
