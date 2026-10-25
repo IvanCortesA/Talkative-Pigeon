@@ -15,8 +15,8 @@ Talkative-Pigeon is a messenger for people who want a simple, fast way to talk w
 | Build tool | Maven |
 | Editor | Visual Studio Code (with Live Share for pair programming) |
 | Version control | Git and GitHub |
-| Hosting (planned) | TODO: the free cloud tier the team picks |
-| Database (planned) | TODO: the cloud database the team picks |
+| Hosting (planned) | TODO|
+| Database (planned) | TODO |
 ## How to run
 
 **You need:** a JDK (the version set by `maven.compiler.release` in `pom.xml`) and Maven. Maven must be installed and added to your PATH.
