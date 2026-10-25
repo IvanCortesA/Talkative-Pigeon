@@ -5,8 +5,8 @@
     and other visual properties used throughout the app.
 */
 .root { /* Root container styles */
-    -accent: #360b68;
-    -accent-dark: #280c55;
+    -accent: #4f0f98;
+    -accent-dark: #4d1560;
     -ink: #1B2430;
     -muted: #55616C;
     -ground: #3b047a;
@@ -78,21 +78,16 @@
     -fx-font-size: 12px;
 }
 
-
-
-
  /* Login screen styles */
 
-
-
- .login-brand {
-    -fx-background-color: #17475C;
+ .login-brand { 
+    -fx-background-color: #7909b6;
     -fx-padding: 56;
 }
  
 .brand-name {
     -fx-text-fill: white;
-    -fx-font-size: 28px;
+    -fx-font-size: 32px;
     -fx-font-weight: bold;
 }
  
@@ -125,3 +120,7 @@
 
 /* ---------- Chat screen ---------- */
 
+.chat-root {
+    -fx-background-color: -ground;
+}
+ 

@@ -1,3 +1,8 @@
+/*
+This class manages the messages diplayed on the left panel in the chat screen.
+Displaying the most recent messages under the name of the sender.
+*/
+
 import java.util.ArrayList;
 import java.util.List;
 

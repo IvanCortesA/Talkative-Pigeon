@@ -1,4 +1,4 @@
-/**
+/*
  * Main class for the Connect Messaging App.
  * This class extends the JavaFX Application class
  */
@@ -13,7 +13,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         scene = new Scene(new LoginScreen(this::showChatScreen),1000, 660);
-        stage.setTitle("Connect - Messaging App");
+        scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+        
+        stage.setTitle("TalaktivePigeon - Messaging App");
         stage.setMinWidth(800);
         stage.setMinHeight(520);
         stage.setScene(scene);

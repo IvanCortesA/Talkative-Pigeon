@@ -11,7 +11,7 @@ public class ChatScreen extends BorderPane {
         sidebar.setPadding(new Insets(25));
         sidebar.setPrefWidth(260);
         
-        Label appTitle = new Label("connect.");
+        Label appTitle = new Label("TalaktivePigeon");
         Label messagesTitle = new Label("MESSAGES");
 
         ChatPanel chatPanel = new ChatPanel();

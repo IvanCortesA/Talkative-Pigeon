@@ -19,31 +19,33 @@ import javafx.scene.layout.VBox;
 
 public class LoginScreen extends HBox {
     
-    public LoginScreen(Runnable onSignIn){ //login screen constructor
+    public LoginScreen(Runnable onSignIn){ //login screen constructor, the parameter is the next page that will be loaded when the user signs in
             StackPane formPane = new StackPane(buildForm(onSignIn));
             formPane.getStyleClass().add("login-pane");
             HBox.setHgrow(formPane, Priority.ALWAYS);
-
-            getChildren().addAll(buildBrandPanel(), formPane);
+            getChildren().addAll(buildBrandPanel(), formPane);// attach chilfren to scene
     }
-    private VBox buildBrandPanel(){  //this is a side panel with the app name and logo
-        
+    private VBox buildBrandPanel(){  
+        //this is a side panel with the app name and logo
         
         Label name = new Label("Talkative-Pigeon");
         name.getStyleClass().add("brand-name");
 
+        Label tagline = new Label("A desktop messenger for your team.");
+        tagline.getStyleClass().add("brand-tagline");
+        tagline.setWrapText(true);
         
         Region top = new Region();
         Region bottom = new Region();
+        
         VBox.setVgrow(top, Priority.ALWAYS);
         VBox.setVgrow(bottom, Priority.ALWAYS);
-        
-        VBox panel = new VBox(name, top, bottom);
+        VBox panel = new VBox(name, top, bottom, tagline);
         
         panel.getStyleClass().add("login-brand");
+
         panel.setPrefWidth (440);
         panel.setMinWidth(440);
-        
         panel.setMaxWidth(440);
         return panel;
 
@@ -67,7 +69,8 @@ public class LoginScreen extends HBox {
         signIn.getStyleClass().add("primary-button");
         signIn.setMaxWidth(Double.MAX_VALUE);
         signIn.setDefaultButton(true);
-        signIn.setOnAction(e -> onSignIn.run());
+        
+        signIn.setOnAction(e -> onSignIn.run()); //sigin button action
  
         /* vbox container fo password and username fields */
         VBox form = new VBox(20,
