@@ -14,15 +14,23 @@ public class ChatScreen extends BorderPane {
         Label appTitle = new Label("connect.");
         Label messagesTitle = new Label("MESSAGES");
 
+        ChatPanel chatPanel = new ChatPanel();
+
         VBox conversations = new VBox(10);
 
         for (Conversation conversation : ConversationData.getSampleConversations()){
             Label conversationLabel = new Label(conversation.getname() + "\n" + conversation.getlastMessage());
+
+            conversationLabel.setOnMouseClicked(e -> chatPanel.showConversation(conversation));
+
+            conversationLabel.setStyle("-fx-cursor: hand;");
 
             conversations . getChildren().add(conversationLabel);
         }
         sidebar.getChildren().addAll(appTitle, messagesTitle, conversations);
 
         setLeft(sidebar);
+        setCenter(chatPanel);
+
     }
 }   
