@@ -1,4 +1,7 @@
-import javafx.geometry.Insets;
+/*
+    This class builds the left panel that shows recent messages and who sent them
+*/
+
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -7,12 +10,16 @@ import javafx.scene.layout.VBox;
 public class ChatScreen extends BorderPane {
 
     public ChatScreen() {
+        
+        getStyleClass().add("chat-root");
         VBox sidebar = new VBox(20);
-        sidebar.setPadding(new Insets(25));
+        sidebar.getStyleClass().add("sidebar");
         sidebar.setPrefWidth(260);
         
         Label appTitle = new Label("TalaktivePigeon");
+        appTitle.getStyleClass().add("app-name");
         Label messagesTitle = new Label("MESSAGES");
+        messagesTitle.getStyleClass().add("section-title");
 
         ChatPanel chatPanel = new ChatPanel();
 
@@ -22,11 +29,12 @@ public class ChatScreen extends BorderPane {
             Label conversationLabel = new Label(conversation.getname() + "\n" + conversation.getlastMessage());
 
             conversationLabel.setOnMouseClicked(e -> chatPanel.showConversation(conversation));
-
-            conversationLabel.setStyle("-fx-cursor: hand;");
+            
+            conversationLabel.getStyleClass().add("contact-name");
 
             conversations . getChildren().add(conversationLabel);
         }
+       
         sidebar.getChildren().addAll(appTitle, messagesTitle, conversations);
 
         setLeft(sidebar);

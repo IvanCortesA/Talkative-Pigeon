@@ -1,15 +1,16 @@
 
 /* 
-    The styles.cc files contains the CSS styles for the application. 
+    The styles.css files contains the CSS styles for the application. 
     It defines the color scheme, font styles, 
     and other visual properties used throughout the app.
 */
+
 .root { /* Root container styles */
-    -accent: #4f0f98;
-    -accent-dark: #4d1560;
+    -accent: #9114b1;
+    -accent-dark: #6a1c84;
     -ink: #1B2430;
     -muted: #55616C;
-    -ground: #3b047a;
+    -ground: #f6f6f6;
     -line: #E1DED6;
     -fx-font-family: "DM Sans", "Segoe UI", "Helvetica Neue", sans-serif;
     -fx-font-size: 15px;
@@ -78,49 +79,7 @@
     -fx-font-size: 12px;
 }
 
- /* Login screen styles */
-
- .login-brand { 
-    -fx-background-color: #7909b6;
-    -fx-padding: 56;
-}
- 
-.brand-name {
-    -fx-text-fill: white;
-    -fx-font-size: 32px;
-    -fx-font-weight: bold;
-}
- 
-.brand-tagline {
-    -fx-text-fill: #CFE3EB;
-    -fx-font-size: 15px;
-}
-
-.login-pane {
-    -fx-background-color: -ground;
-    -fx-padding: 48;
-}
- 
-.heading {
-    -fx-font-size: 32px;
-    -fx-font-weight: bold;
-}
- 
-.subtle {
-    -fx-text-fill: -muted;
-    -fx-font-size: 16px;
-}
- 
-.field-label {
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-}
- 
 
 
-/* ---------- Chat screen ---------- */
 
-.chat-root {
-    -fx-background-color: -ground;
-}
  

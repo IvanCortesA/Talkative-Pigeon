@@ -1,0 +1,42 @@
+ /* 
+ 
+ ---------Login screen styles------`
+ 
+ */
+
+ .login-brand { 
+    -fx-background-color: #6d10cb;
+    -fx-padding: 56;
+}
+ 
+.brand-name {
+    -fx-text-fill: white;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+ 
+.brand-tagline {
+    -fx-text-fill: #CFE3EB;
+    -fx-font-size: 15px;
+}
+
+.login-pane {
+    -fx-background-color: -ground;
+    -fx-padding: 48;
+}
+ 
+.heading {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+ 
+.subtle {
+    -fx-text-fill: -muted;
+    -fx-font-size: 16px;
+}
+ 
+.field-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+ 

@@ -13,8 +13,12 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         scene = new Scene(new LoginScreen(this::showChatScreen),1000, 660);
-        scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
-        
+        scene.getStylesheets().addAll(
+            getClass().getResource("/Styles/RootStyles.css").toExternalForm(),
+            getClass().getResource("/Styles/LogInStyles.css").toExternalForm(),
+            getClass().getResource("/Styles/ChatStyles.css").toExternalForm());
+
+
         stage.setTitle("TalaktivePigeon - Messaging App");
         stage.setMinWidth(800);
         stage.setMinHeight(520);

@@ -21,21 +21,30 @@ public class ChatPanel extends BorderPane {
     private final Label nameLabel = new Label("Select a conversation");
     private Conversation current;
 
+    // this methods builds the panel with the available elements
     public ChatPanel() {
+        // Set up the header that changes to the name of the other user
+        nameLabel.getStyleClass().add("chat-name");
         HBox header = new HBox(nameLabel);
+        header.getStyleClass().add("chat-header");
         setTop(header);
 
+        //scroll bar
         messageBox.setPadding(new Insets(10));
         ScrollPane scroll = new ScrollPane(messageBox);
         scroll.setFitToWidth(true);
         setCenter(scroll);
         messageBox.heightProperty().addListener((obs, old, h) -> scroll.setVvalue(1.0));
 
+        // Set up the input bar with ghost prompt
         TextField input = new TextField();
         input.setPromptText("Type a message...");
+        input.getStyleClass().add("message-input");
         HBox.setHgrow(input, Priority.ALWAYS);
 
+        //send button code
         Button sendButton = new Button("Send");
+        sendButton.getStyleClass().add("send-button");
         sendButton.setOnAction(e -> {
             if (current == null) return;
             String text = input.getText().trim();
@@ -44,10 +53,10 @@ public class ChatPanel extends BorderPane {
             render();
             input.clear();
         });
-        input.setOnAction(e -> sendButton.fire());
+        input.setOnAction(e -> sendButton.fire()); //send button action
 
         HBox inputBar = new HBox(10, input, sendButton);
-        inputBar.setPadding(new Insets(10));
+         input.getStyleClass().add("message-input");
         setBottom(inputBar);
     }
 
@@ -57,21 +66,18 @@ public class ChatPanel extends BorderPane {
         render();
     }
 
-    private void render() {
+    private void render() { //gather children to build a conversation window inside the conversation panel
         messageBox.getChildren().clear();
         for (Message m : current.getMessages()) {
             messageBox.getChildren().add(bubble(m.getText(), m.isMine()));
         }
     }
-
+    //buble method that bulds the chat bubles from ChatStyles.css abd the string passed as a parameter
     private HBox bubble(String text, boolean mine) {
         Label label = new Label(text);
         label.setWrapText(true);
         label.setMaxWidth(400);
-        label.setPadding(new Insets(8, 14, 8, 14));
-        label.setStyle(mine
-                ? "-fx-background-color:#5865f2; -fx-text-fill:white; -fx-background-radius:16;"
-                : "-fx-background-color:#e4e6eb; -fx-background-radius:16;");
+        label.getStyleClass().add(mine ? "bubble-mine" : "bubble-theirs");
         HBox row = new HBox(label);
         row.setAlignment(mine ? Pos.CENTER_RIGHT : Pos.CENTER_LEFT);
         return row;

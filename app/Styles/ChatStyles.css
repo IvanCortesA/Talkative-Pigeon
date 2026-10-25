@@ -1,0 +1,130 @@
+/* 
+ 
+ ---------Chat screen--------
+ 
+ */
+
+.chat-root {
+    -fx-background-color: -ground;
+}
+.sidebar {
+    -fx-background-color: -surface;
+    -fx-border-color: -line;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 25;
+}
+ 
+.app-name {
+    -fx-text-fill: -accent;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+ 
+.section-title { /* the small "MESSAGES" heading */
+    -fx-text-fill: -muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+ 
+.contact-row { /* one conversation in the list */
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+ 
+.contact-row:hover {
+    -fx-background-color: #F1ECF8;
+}
+ 
+.contact-row.selected { /* the conversation that is open right now */
+    -fx-background-color: #E6DCF3;
+}
+ 
+.contact-name {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+ 
+.contact-preview {
+    -fx-font-size: 14px;
+    -fx-text-fill: -muted;
+}
+ 
+/* 
+    Right side: open conversation (ChatPanel)  
+*/
+ 
+.chat-header {
+    -fx-background-color: -surface;
+    -fx-alignment: center-left;
+    -fx-min-height: 64;
+    -fx-padding: 0 24 0 24;
+    -fx-border-color: -line;
+    -fx-border-width: 0 0 1 0;
+}
+ 
+.chat-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+ 
+.chat-scroll,
+.chat-scroll > .viewport {
+    -fx-background: -chat-bg;
+    -fx-background-color: -chat-bg;
+}
+ 
+.chat-scroll {
+    -fx-padding: 0;
+}
+ 
+.message-box {
+    -fx-background-color: -chat-bg;
+    -fx-padding: 24;
+}
+ 
+.bubble-mine { /* messages you sent */
+    -fx-background-color: -accent;
+    -fx-background-radius: 16;
+    -fx-text-fill: white;
+    -fx-padding: 8 14 8 14;
+}
+ 
+.bubble-theirs { /* messages you received */
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-color: -line;
+    -fx-border-radius: 16;
+    -fx-text-fill: -ink;
+    -fx-padding: 8 14 8 14;
+}
+ 
+.composer { /* bar at the bottom with the text box and Send */
+    -fx-background-color: -surface;
+    -fx-alignment: center-left;
+    -fx-padding: 12 20 12 20;
+    -fx-border-color: -line;
+    -fx-border-width: 1 0 0 0;
+}
+ 
+.message-input {
+    -fx-background-radius: 22;
+    -fx-border-radius: 22;
+    -fx-pref-height: 44;
+    -fx-padding: 0 16 0 16;
+    -fx-font-size: 15px;
+}
+ 
+.send-button {
+    -fx-background-color: -accent;
+    -fx-background-radius: 22;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-pref-height: 44;
+    -fx-padding: 0 20 0 20;
+    -fx-cursor: hand;
+}
+ 
+.send-button:hover {
+    -fx-background-color: -accent-dark;
+}

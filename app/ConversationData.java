@@ -1,3 +1,7 @@
+/*  
+This class holds the name of a the conversation and temporarily holds the message sent by the ither user
+
+*/
 import java.util.ArrayList;
 import java.util.List;
 
