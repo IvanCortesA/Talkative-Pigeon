@@ -6,15 +6,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
-/*
-    This is the main screen after the login. It has two areas
-    left side is the sidebar with the list of conversations, and you can choose for it
-    center is the actual ChatPanel, which shows the selected conversation
- */
+
 public class ChatScreen extends BorderPane {
 
     public ChatScreen() {
-        //Sidebar container which has title and list of conversations
+        //create the side panel to place the conversations
         getStyleClass().add("chat-root");
         VBox sidebar = new VBox(20);
         sidebar.getStyleClass().add("sidebar");
@@ -25,23 +21,22 @@ public class ChatScreen extends BorderPane {
         Label messagesTitle = new Label("MESSAGES");
         messagesTitle.getStyleClass().add("section-title");
 
+
         ChatPanel chatPanel = new ChatPanel();
 
         VBox conversations = new VBox(10);
-
-        //One label per contact
+        //create the list of conversations that will be displayed on the sidebar panel
         for (Conversation conversation : ConversationData.getSampleConversations()){
             Label conversationLabel = new Label(conversation.getname() + "\n" + conversation.getlastMessage());
 
-            //when this label is clicked, show contact's chat in the panel.
             conversationLabel.setOnMouseClicked(e -> chatPanel.showConversation(conversation));
-
+            
             conversationLabel.getStyleClass().add("contact-name");
 
             conversations . getChildren().add(conversationLabel);
         }
        
-        sidebar.getChildren().addAll(appTitle, messagesTitle, conversations);
+        sidebar.getChildren().addAll(appTitle, messagesTitle, conversations);// use the previous list to build the panel
         setLeft(sidebar);
         setCenter(chatPanel);
 

@@ -14,7 +14,7 @@ public class Conversation {
     //ChatPanel class reads this list to draw the bubbles purple and grey.
     private final List<Message> messages = new ArrayList<>();
 
-    public Conversation(String name, String lastMessage){
+    public Conversation(String name, String lastMessage){ //contructor for the conversation object
         this.name = name;
         this.lastMessage = lastMessage;
 

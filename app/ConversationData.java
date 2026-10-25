@@ -2,11 +2,14 @@
 This class holds the name of a the conversation and temporarily holds the message sent by the ither user
 
 */
+
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ConversationData{
 
+    // This is an example of a method that will return the previous message sent by the other user.
     public static List<Conversation> getSampleConversations(){
         List<Conversation> conversations = new ArrayList<>();
 
