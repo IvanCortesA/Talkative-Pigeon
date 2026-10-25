@@ -21,14 +21,14 @@ Database (planned)	TODO: the cloud database the team picks
 You need: a JDK (the version set by maven.compiler.release in pom.xml) and Maven.
 
 1. Clone the repository:
-    ...
-   git clone https://github.com/IvanCortesA/Talkative-Pigeon.git
-   cd Talkative-Pigeon
-   ...
+    '''
+    git clone https://github.com/IvanCortesA/Talkative-Pigeon.git
+    cd Talkative-Pigeon
+    '''
 2. Start the app:
-    ...
+    '''
     mvn javafx:run
-    ...
+    '''
 Note: Maven needs to be installed on your pc and in your variable path
 
 You can also run Launcher.java from VS Code or your prefered IDE. 
