@@ -16,20 +16,25 @@ Version control 	Git and GitHub
 Hosting (planned)	TODO: the free cloud tier the team picks (for example Google Cloud Run, Azure, or Firebase)
 Database (planned)	TODO: the cloud database the team picks
 
-##How to run
+## How to run
 
-You need: a JDK (the version set by maven.compiler.release in pom.xml) and Maven.
+**You need:** a JDK (the version set by `maven.compiler.release` in `pom.xml`) and Maven. Maven must be installed and added to your PATH.
 
 1. Clone the repository:
-    ...
+
+   ```
    git clone https://github.com/IvanCortesA/Talkative-Pigeon.git
    cd Talkative-Pigeon
-   ...
+   ```
+
 2. Start the app:
-    ...
-    mvn javafx:run
-    ...
-Note: Maven needs to be installed on your pc and in your variable path
 
-You can also run Launcher.java from VS Code or your prefered IDE. 
+   ```
+   mvn javafx:run
+   ```
 
+You can also run `Launcher.java` from VS Code or your preferred IDE.
+
+## Architecture Diagram
+
+![alt text](MessegerArchitecture.drawio.png)
