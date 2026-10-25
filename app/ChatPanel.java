@@ -1,5 +1,5 @@
 /*  
-this class contains the section of chat screen whre messages(message bubles) 
+this class contains the section of chat screen where messages(message bubbles)
 of the active conversation will be seen.
 */
 
@@ -21,7 +21,7 @@ public class ChatPanel extends BorderPane {
     private final Label nameLabel = new Label("Select a conversation");
     private Conversation current;
 
-    // this methods builds the panel with the available elements
+    //This method builds the panel with the available elements
     public ChatPanel() {
         // Set up the header that changes to the name of the other user
         nameLabel.getStyleClass().add("chat-name");
@@ -72,7 +72,7 @@ public class ChatPanel extends BorderPane {
             messageBox.getChildren().add(bubble(m.getText(), m.isMine()));
         }
     }
-    //buble method that bulds the chat bubles from ChatStyles.css abd the string passed as a parameter
+    //bubble method that builds the chat bubbles from ChatStyles.css abd the string passed as a parameter
     private HBox bubble(String text, boolean mine) {
         Label label = new Label(text);
         label.setWrapText(true);
