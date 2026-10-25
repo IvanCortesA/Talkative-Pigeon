@@ -16,7 +16,7 @@ public class ChatScreen extends BorderPane {
         sidebar.getStyleClass().add("sidebar");
         sidebar.setPrefWidth(260);
         
-        Label appTitle = new Label("TalaktivePigeon");
+        Label appTitle = new Label("TalkativePigeon");
         appTitle.getStyleClass().add("app-name");
         Label messagesTitle = new Label("MESSAGES");
         messagesTitle.getStyleClass().add("section-title");

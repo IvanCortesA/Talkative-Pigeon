@@ -19,7 +19,7 @@ public class Main extends Application {
             getClass().getResource("/Styles/ChatStyles.css").toExternalForm()
         );
 
-        stage.setTitle("TalaktivePigeon - Messaging App");
+        stage.setTitle("TalkativePigeon - Messaging App");
         stage.setMinWidth(800);
         stage.setMinHeight(520);
         stage.setScene(scene);
