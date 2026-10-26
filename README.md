@@ -6,6 +6,10 @@ A desktop messaging app where users sign in, see their conversations, and chat i
 
 Talkative-Pigeon is a messenger for people who want a simple, fast way to talk with their team from their computer. Users sign in, pick a conversation from a list on the left, and read and send messages in a chat window on the right. Later iterations will add real user accounts, messages shared between users through a cloud server, and extras such as file sharing and GIFs.
 
+## Available Functions
+
+This first prototype is the user interface with sample data. You can sign in (no password or username required), click through the conversations, and send messages in the open chat, but nothing is saved, and there is no server yet.
+
 ## Development tools
 
 | Purpose | Tool |
