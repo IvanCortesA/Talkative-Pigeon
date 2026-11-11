@@ -3,6 +3,7 @@
  * This class extends the JavaFX Application class
  */
 
+import database.Database;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -12,6 +13,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
+
+        Database.initializeDatabase();
+
         scene = new Scene(new LoginScreen(this::showChatScreen),1000, 660);
         scene.getStylesheets().addAll( //adds the style resources into the project
             getClass().getResource("/Styles/RootStyles.css").toExternalForm(),
