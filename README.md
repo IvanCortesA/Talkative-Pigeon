@@ -8,8 +8,7 @@ Talkative-Pigeon is a messenger for people who want a simple, fast way to talk w
 
 ## Available Functions
 
-This first prototype is the user interface with sample data. You can sign in (no password or username required), click through the conversations, and send messages in the open chat, but nothing is saved, and there is no server yet.
-
+This first prototype is the user interface with sample data. You can sign in (no password or username required), click through the conversations, and send messages in the open chat.
 ## Development tools
 
 | Purpose | Tool |
@@ -20,7 +19,7 @@ This first prototype is the user interface with sample data. You can sign in (no
 | Editor | Visual Studio Code (with Live Share for pair programming) |
 | Version control | Git and GitHub |
 | Hosting (planned) | TODO|
-| Database (planned) | TODO |
+| Database (planned) | SQLite |
 ## How to run
 
 **You need:** a JDK (the version set by `maven.compiler.release` in `pom.xml`) and Maven. Maven must be installed and added to your PATH.
