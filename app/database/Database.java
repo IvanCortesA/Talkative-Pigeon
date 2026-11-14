@@ -14,13 +14,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Database{
-    
-    private static final String URL = "jdbc:sqlite:talkative_pigeon.db";
+
+    private static String url(){
+        return System.getProperty("pigeon.db.url", "jdbc:sqlite:talkative_pigeon.db");
+    }
 
     public static Connection connect(){
 
         try {
-            Connection connection = DriverManager.getConnection(URL); //establishes database connection
+            Connection connection = DriverManager.getConnection(url()); //establishes database connection
 
             try(Statement statement = connection.createStatement()){
                 statement.execute("PRAGMA foreign_keys = ON");
@@ -40,7 +42,7 @@ public class Database{
     public static void initializeDatabase(){ //create realtionsip tables
         
         String users = """
-            CREATE TABLE IS NOT EXISTS Users 
+            CREATE TABLE IF NOT EXISTS Users 
             ( user_id INTEGER PRIMARY KEY AUTOINCREMENT, 
              username TEXT NOT NULL UNIQUE, password_hash TEXT NOT NULL, 
              display_name TEXT, profile_picture TEXT,created_at TEXT DEFAULT CURRENT_TIMESTAMP);""";
@@ -49,7 +51,7 @@ public class Database{
                 CREATE TABLE IF NOT EXISTS Conversations 
                 ( conversation_id INTEGER PRIMARY KEY AUTOINCREMENT, 
                  conversation_name TEXT, conversation_type TEXT NOT NULL CHECK
-                (conversatino_type IN ('individual', 'group')), 
+                (conversation_type IN ('individual', 'group')), 
                 created_at TEXT DEFAULT CURRENT_TIMESTAMP);""";
 
         String members = """ 
@@ -60,7 +62,7 @@ public class Database{
 
                     PRIMARY KEY (conversation_id, user_id),
 
-                    FOREGIN KEY(conversation_id) 
+                    FOREIGN KEY(conversation_id) 
                         REFERENCES Conversations(conversation_id), 
                     FOREIGN KEY (user_id) 
                         REFERENCES Users(user_id));""";
@@ -81,6 +83,41 @@ public class Database{
                         REFERENCES Users(user_id)
                 );
                 """;
+
+        String settings = """
+                CREATE TABLE IF NOT EXISTS UserSettings (
+                    user_id INTEGER PRIMARY KEY,
+                    theme TEXT NOT NULL DEFAULT 'light' CHECK (theme IN ('light', 'dark')),
+                    tts_enabled INTEGER NOT NULL DEFAULT 0 CHECK (tts_enabled IN (0, 1)),
+                    tts_rate REAL NOT NULL DEFAULT 1.0 CHECK (tts_rate > 0),
+                    tts_voice TEXT,
+                    font_scale REAL NOT NULL DEFAULT 1.0 CHECK (font_scale > 0),
+                    updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
+
+                    FOREIGN KEY (user_id)
+                        REFERENCES Users(user_id)
+                        ON DELETE CASCADE
+                );
+                """;
+
+        //friends list (one row per pair, user_low is always the smaller id)
+        String friendships = """
+                CREATE TABLE IF NOT EXISTS Friendships (
+                    user_low INTEGER NOT NULL,
+                    user_high INTEGER NOT NULL,
+                    requested_by INTEGER NOT NULL,
+                    status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'accepted')),
+                    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+
+                    PRIMARY KEY (user_low, user_high),
+                    CHECK (user_low < user_high),
+                    CHECK (requested_by IN (user_low, user_high)),
+
+                    FOREIGN KEY (user_low) REFERENCES Users(user_id) ON DELETE CASCADE,
+                    FOREIGN KEY (user_high) REFERENCES Users(user_id) ON DELETE CASCADE,
+                    FOREIGN KEY (requested_by) REFERENCES Users(user_id) ON DELETE CASCADE
+                );
+                """;
         
 
         try(Connection connection = connect()){
@@ -95,6 +132,8 @@ public class Database{
                 statement.execute(conversations);
                 statement.execute(members);
                 statement.execute(messages);
+                statement.execute(settings);
+                statement.execute(friendships);
 
                 System.out.println("Database tables created successfully!");
             }  
