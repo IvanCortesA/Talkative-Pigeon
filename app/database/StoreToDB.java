@@ -161,7 +161,7 @@ public class StoreToDB {
 
     // ---------- Messages ----------
 
-    /** Saves a message and returns its message_id, or -1 if it failed. */
+    // Saves a message and returns its message_id, or -1 if it failed. 
     public static int addMessage(int conversationId, int senderId, String text) {
         try (Connection c = Database.connect()) {
             if (c == null) return -1;
@@ -178,7 +178,7 @@ public class StoreToDB {
         }
     }
 
-    /** Retrieves every message of a conversation, oldest first. */
+    // Retrieves every message of a conversation, oldest first.
     public static List<MessageRow> getMessages(int conversationId) {
         List<MessageRow> rows = new ArrayList<>();
         try (Connection c = Database.connect()) {
@@ -199,7 +199,7 @@ public class StoreToDB {
 
     // ---------- Helper ----------
 
-    /** Reads the id that SQLite generated for the row that was just inserted. */
+    // Reads the id that SQLite generated for the row that was just inserted. 
     private static int firstKey(PreparedStatement ps) throws SQLException {
         try (ResultSet keys = ps.getGeneratedKeys()) {
             return keys.next() ? keys.getInt(1) : -1;
