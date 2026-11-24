@@ -4,6 +4,7 @@ of the active conversation will be seen.
 */
 
 //required imports
+import database.StoreToDB; //database implementation
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -49,6 +50,13 @@ public class ChatPanel extends BorderPane {
             if (current == null) return;
             String text = input.getText().trim();
             if (text.isEmpty()) return;
+            
+            //save enetered message to database
+           
+            int savedId = StoreToDB.addMessage(current.getId(), ConversationData.getCurrentUserId(), text);
+            if (savedId < 0) return;
+            
+            
             current.addMessage(new Message(text, true));
             render();
             input.clear();
