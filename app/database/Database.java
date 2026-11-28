@@ -15,10 +15,11 @@ import java.sql.Statement;
 
 public class Database{
 
-    private static String url(){
+    private static String url(){ 
         return System.getProperty("pigeon.db.url", "jdbc:sqlite:talkative_pigeon.db");
     }
 
+//create the db file connection with the name
     public static Connection connect(){
 
         try {
